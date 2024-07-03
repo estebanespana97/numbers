@@ -11,27 +11,71 @@ class Numbers {
   }
   count() {
     //return the count of numbers in data
+    return this.data.length;
   }
+  
   printNumbers() {
     //print the numbers in data
+    this.data.forEach(number => {
+      console.log(`This is my number: ${number} and this is my index: ${this.data.indexOf(number)}`);
+    })
   }
+  
   odds() {
     //return the odd numbers in data
+    let oddNumberArray = [];
+    this.data.forEach(number => {
+      if(number%2 === 1){
+        oddNumberArray.push(number);
+      }
+    })
+    return oddNumberArray;
   }
+  
   evens() {
     //return the even numbers in data
+    let evenNumberArray = [];
+    this.data.forEach(number => {
+      if(number%2 === 0){
+        evenNumberArray.push(number);
+      }
+    })
+    return evenNumberArray;
   }
+  
   sum() {
     //return the sum of the numbers
+    return this.data.reduce((accumulator,currentValue)=> accumulator + currentValue,0);
   }
+  
   product() {
     //return the product of the numbers
+    return this.data.reduce((accumulator,currentValue)=> accumulator * currentValue,1);
   }
+  
   greaterThan(target) {
     //return the numbers greater than the target
+    let numbersGreaterThanTarget = [];
+    this.data.forEach(number => {
+      if(number > target){
+        numbersGreaterThanTarget.push(number);
+      }
+    })
+    return numbersGreaterThanTarget;
   }
+  
   howMany(target) {
     //return the count of a given number
+    let mapOfnumbers = {}
+    this.data.forEach(index => {
+      if(!mapOfnumbers[index]){
+        mapOfnumbers[index] = 1;
+      }
+      else{
+        mapOfnumbers[index] += 1;
+      }
+    });
+    return mapOfnumbers[target];
   }
 }
 
